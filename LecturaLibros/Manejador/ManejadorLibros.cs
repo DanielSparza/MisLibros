@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Manejador
 {
-    class ManejadorLibros
+    public class ManejadorLibros
     {
         ConexionLecturaLibros cl = new ConexionLecturaLibros();
 

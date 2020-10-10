@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Manejador
 {
-    class ManejadorLecturas
+    public class ManejadorLecturas
     {
         ConexionLecturaLibros cl = new ConexionLecturaLibros();
 
@@ -12,7 +12,7 @@ namespace Manejador
         public string Guardar(EntidadLecturas lectura)
         {
             return cl.Comando(string.Format("insert into lecturas values" +
-                "(NULL, '{0}', '{1}', {2})", lectura.FKLibro, lectura.Fecha, lectura.NumeroPaginas));
+                "({0}, '{1}', '{2}', {3})",lectura.IdLectura, lectura.FKLibro, lectura.Fecha, lectura.NumeroPaginas));
         }
 
         //Borrar Lectura
@@ -22,11 +22,11 @@ namespace Manejador
         }
 
         //Modificar Lectura
-        public string Modificar(EntidadLecturas lectura, string id2)
+        public string Modificar(EntidadLecturas lectura, int id)
         {
             return cl.Comando(string.Format("update lecturas set FKLibro='{0}'," +
-                " Fecha='{1}', NumeroPaginas={2} where Id_Lectura={5}",
-                lectura.FKLibro, lectura.Fecha, lectura.NumeroPaginas, id2));
+                " Fecha='{1}', NumeroPaginas={2} where Id_Lectura={3}",
+                lectura.FKLibro, lectura.Fecha, lectura.NumeroPaginas, id));
         }
 
         //Mostrar Informacion
